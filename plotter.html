@@ -1,0 +1,121 @@
+<html>
+<head>
+<meta charset="utf-8">
+<title>Map Tool: Map Latitude Longitude Coordinates/Points - Google Maps</title>
+
+
+<body onLoad="GMaps_load();">
+
+<script src='http://maps.google.com/maps?file=api&amp;v=2&amp;key=AIzaSyBEiSxSEhXOTApSee2q6XzyBXxa5s6eebk'></script>
+
+<script type="text/javascript">
+
+document.write('<div>scripting</div>');
+
+function GMaps_Load() {
+  document.write('<div>browser check</div>');
+
+if (GBrowserIsCompatible()) 
+{
+var map = new GMap2(document.getElementById("GMaps_canvas"));
+map.addControl(new GSmallMapControl());
+//map.setCenter(new GLatLng(37.701997, -97.28114), 4);
+map.addControl(new GSmallMapControl());
+
+document.write('<div>inside function</div>');
+
+
+
+
+
+var cords = [
+new GLatLng(14.4372,75.9571),
+new GLatLng(14.2459,76.3679),
+new GLatLng(14.6784,74.3153),
+new GLatLng(13.9495,76.6242),
+new GLatLng(13.5312,77.0003),
+new GLatLng(14.756,74.239),
+new GLatLng(14.8723,74.1335),
+new GLatLng(14.9104,74.3273),
+new GLatLng(14.5215,75.7864),
+new GLatLng(14.8537,74.1331),
+new GLatLng(14.8629,74.1333),
+new GLatLng(14.739,74.2671),
+new GLatLng(14.769,74.19),
+new GLatLng(14.8375,74.132),
+new GLatLng(12.9392,77.5313),
+new GLatLng(14.7246,74.2873),
+new GLatLng(14.9162,74.35),
+new GLatLng(14.2372,76.3814),
+new GLatLng(14.8807,74.1433),
+new GLatLng(14.4295,75.9283),
+new GLatLng(15.2461,75.0382),
+new GLatLng(14.4309,75.9332),
+new GLatLng(15.2726,75.1469),
+new GLatLng(14.9202,74.3503),
+new GLatLng(14.8983,74.3478),
+new GLatLng(14.7915,74.1186),
+new GLatLng(12.9808,77.5725),
+new GLatLng(13.554,76.9905),
+new GLatLng(15.2194,75.1406),
+new GLatLng(14.7681,75.4264),
+new GLatLng(15.0887,75.1523),
+new GLatLng(15.07,74.8715),
+new GLatLng(12.9475,77.5738),
+new GLatLng(14.6736,74.3967),
+new GLatLng(14.7915,74.1186),
+new GLatLng(15.1248,74.9294),
+new GLatLng(14.817,74.1279),
+new GLatLng(14.6683,74.3082),
+new GLatLng(12.9476,77.5334),
+];
+
+for ( var i = 0; i < cords.length; i++ )
+  {
+    var marker = new GMarker( cords[ i ] );
+    map.addOverlay( marker );
+  }
+  
+ // #2a -- calculate center
+  var latlngbounds = new GLatLngBounds( );
+  for ( var i = 0; i < cords.length; i++ )
+  {
+    latlngbounds.extend( cords[ i ] );
+  }
+
+  // #2b -- set center using the calculated values
+  map.setCenter( latlngbounds.getCenter( ), map.getBoundsZoomLevel( latlngbounds ) );
+
+
+map.addOverlay(marker); }}
+
+GMaps_Load();
+</script>
+<script type="text/javascript">
+	window.onload=function() {GMaps_Load();}
+	window.onunload=function() {GUnload();}
+</script>
+
+
+<!-- ShareThis -->
+<!--
+<script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+<script type="text/javascript">stLight.options({publisher: "9c1df512-49fd-40e2-92f9-451818c0c8d5", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script>
+-->
+<!-- /ShareThis -->
+
+<!--
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-1254986-3', 'auto');
+  ga('send', 'pageview');
+
+</script>
+-->
+
+</body>
+</html>
