@@ -4,16 +4,12 @@
 <title>Map Tool: Map Latitude Longitude Coordinates/Points - Google Maps</title>
 
 
-<body onLoad="GMaps_load();">
 
 <script src='http://maps.google.com/maps?file=api&amp;v=2&amp;key=AIzaSyBEiSxSEhXOTApSee2q6XzyBXxa5s6eebk'></script>
 
 <script type="text/javascript">
 
-document.write('<div>scripting</div>');
-
 function GMaps_Load() {
-  document.write('<div>browser check</div>');
 
 if (GBrowserIsCompatible()) 
 {
@@ -21,8 +17,6 @@ var map = new GMap2(document.getElementById("GMaps_canvas"));
 map.addControl(new GSmallMapControl());
 //map.setCenter(new GLatLng(37.701997, -97.28114), 4);
 map.addControl(new GSmallMapControl());
-
-document.write('<div>inside function</div>');
 
 
 
@@ -88,14 +82,12 @@ for ( var i = 0; i < cords.length; i++ )
 
 
 map.addOverlay(marker); }}
-
-GMaps_Load();
 </script>
 <script type="text/javascript">
 	window.onload=function() {GMaps_Load();}
 	window.onunload=function() {GUnload();}
 </script>
-
+</head>
 
 <!-- ShareThis -->
 <!--
@@ -117,5 +109,9 @@ GMaps_Load();
 </script>
 -->
 
+<body>
+  <div id="GMaps_canvas">
+
+  </div>  
 </body>
 </html>

@@ -7,7 +7,7 @@
 <link rel="icon" href="/img/lat-long-icon.png"/>
 <link rel="canonical" href="http://www.darrinward.com/lat-long/">
 <link rel="stylesheet" href="/inc/css/latlongtool.css">
-
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places"></script>
 </head>
 
 <body>
@@ -92,7 +92,10 @@
 
 <script type="text/javascript">
 function GMaps_Load() {
+  alert("some");
+  alert(GBrowserIsCompatible());
 if (GBrowserIsCompatible()) {
+  alert("right!");
 var map = new GMap2(document.getElementById("GMaps_canvas"));
 map.addControl(new GSmallMapControl());
 //map.setCenter(new GLatLng(37.701997, -97.28114), 4);
